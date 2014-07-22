@@ -5,7 +5,73 @@
 @import 'JqueryUI/jquery-ui.theme';
 
 
+/*Color vars*/
+$dark-gray: #0F1E43;
+$gray: #EBEBEB;
+$turquoise: #24D7B9;
+$shadow: rgba(0,0,0,.3);
+$text-hotspot: rgba(255,255,255,1);
 
+
+body {
+	background: url(../img/bg-main.png) repeat;
+}
+
+header {
+	background-color: $dark-gray;
+	border-bottom: 4px solid $turquoise;
+	min-height: 40px;
+	padding: 5px 0 10px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: $dark-gray;
+	text-shadow: 0 1px 0 $text-hotspot;
+}
+
+h3 {
+	margin-bottom: 30px;
+}
+
+#box {
+	background-color: $gray;
+	box-shadow: 0 0px 5px $shadow;
+}
+.option {
+	padding: 10px;
+	margin-bottom: 10px;
+
+	& h4 {
+		margin: 0px;
+	}
+	& .ui-slider {
+		margin-top: 4px;
+	}
+}
+
+@mixin window($border-from-color, $shadow-color) {
+	box-shadow: inset 0 0 7px $shadow-color;
+	border-top: 1px solid darken($border-from-color, 5%);
+	border-left: 1px solid darken($border-from-color, 5%);
+	border-right: 1px solid lighten($border-from-color, 5%);
+	border-bottom: 1px solid lighten($border-from-color, 5%);
+	border-radius: 4px;
+}
+
+.result-section {
+	width: 100%;
+	padding: 25% 0;
+	background: url(../img/bg-result.png) repeat;
+	margin-bottom: 30px;
+	@include window($gray, $shadow);
+}
+
+textarea {
+	width: 100%;
+	max-width: 100%;
+	padding: 4px;
+	@include window($gray, $shadow);
+}
 
 
 
