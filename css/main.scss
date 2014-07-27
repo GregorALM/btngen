@@ -1,16 +1,20 @@
-@import 'bootstrap/bootstrap';
-@import 'bootstrap/bootstrap-theme';
-@import 'JqueryUI/jquery-ui';
-@import 'JqueryUI/jquery-ui.structure';
-@import 'JqueryUI/jquery-ui.theme';
-
-
-/*Color vars*/
+// Color vars
 $dark-gray: #0F1E43;
 $gray: #EBEBEB;
 $turquoise: #24D7B9;
 $shadow: rgba(0,0,0,.3);
 $text-hotspot: rgba(255,255,255,1);
+
+// Mixins
+
+@mixin window($border-from-color, $shadow-color) {
+	box-shadow: inset 0 1px 4px $shadow-color;
+	border-top: 1px solid darken($border-from-color, 5%);
+	border-left: 1px solid darken($border-from-color, 5%);
+	border-right: 1px solid lighten($border-from-color, 5%);
+	border-bottom: 1px solid lighten($border-from-color, 5%);
+	border-radius: 4px;
+}
 
 
 body {
@@ -47,15 +51,6 @@ h3 {
 	& .ui-slider {
 		margin-top: 4px;
 	}
-}
-
-@mixin window($border-from-color, $shadow-color) {
-	box-shadow: inset 0 0 7px $shadow-color;
-	border-top: 1px solid darken($border-from-color, 5%);
-	border-left: 1px solid darken($border-from-color, 5%);
-	border-right: 1px solid lighten($border-from-color, 5%);
-	border-bottom: 1px solid lighten($border-from-color, 5%);
-	border-radius: 4px;
 }
 
 .result-section {

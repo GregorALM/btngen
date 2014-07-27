@@ -1,37 +1,55 @@
-//@codekit-prepend "vendor/jquery-1.11.0.js"
-//@codekit-prepend "vendor/jquery-ui.js"
-//@codekit-prepend "vendor/bootstrap.js"
-
 (function () {
 
 	var btnGen = {
 
-		initialize: function () {
-			this.setUpOptoinsUI();
-			this.setUpListeners();
+		settings: {
+			'border-radius': {
+				type: "slider",
+				initial: {
+					animate: true,
+					min: 0,
+					max: 50,
+					range: "min",
+					value: 0,
+				}
+			},
+			'border-size': {
+				type: "slider",
+				initial: {
+					animate: true,
+					min: 0,
+					max: 15,
+					range: "min",
+					value: 0
+				}
+			}
+		},
 
+		initialize: function () {
+			this.setUpListeners();
+			this.setUpOptoinsUI();
+			this.setValue();
 		},
 
 		setUpOptoinsUI: function () {
-			console.log('1');
-			$("#border-radius").slider({
-				animate: true,
-				min: 0,
-				max: 50,
-				range: "min",
-				value: 0
-			});
-			$("#border-size").slider({
-				animate: true,
-				min: 0,
-				max: 15,
-				range: "min",
-				value: 0
+			$.each(this.settings, function (key, val) {
+				switch (val.type) {
+					case "slider":
+						$("#" + key).slider(val.initial);
+				}
 			});
 		},
 
 		setUpListeners: function () {
-			
+			$("#border-radius, #border-size").bind("create slide change", this.changeValue);
+		},
+
+		// setValue: function (settings) {
+
+		// },
+
+		changeValue: function (event, ui) {
+			console.log(ui.value);
 		}
 
 	};
