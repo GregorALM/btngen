@@ -41,12 +41,19 @@
 			});
 
 			this.setUpListeners();
+			this.setSliders();
+		},
+
+		_setOption: function () {
+			this.setRGB(this.options.value);
+			this.setSliders();
 		},
  
 		_init: function () {
 			this.setRGB(this.options.value);
 			this.element.find('.ui-colorpicker-hex').val(this.options.value);
 			this.setBG(this.options.value);
+			this.setSliders();
 		},
  
  		//Деструктор не стал писать, нет времени(надеюсь никто не собирается в этом приложении деинициализировать виджет)
@@ -112,6 +119,7 @@
 			this.element.find('.ui-colorpicker-red-slider').slider('value', this.options.valueR);
 			this.element.find('.ui-colorpicker-green-slider').slider('value', this.options.valueG);
 			this.element.find('.ui-colorpicker-blue-slider').slider('value', this.options.valueB);
+			console.log(this.options);
 		},
 
 		setUpListeners: function () {
