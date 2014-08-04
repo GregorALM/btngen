@@ -120,6 +120,7 @@
 			this.setUpListeners();
 			this.setUpOptoinsUI();
 			this.initTabs();
+			this.initModal();
 		},
 
 		// Устанавливаем лиснеры
@@ -136,6 +137,16 @@
 			$('#optionTabs a').click(function (e) {
 			  e.preventDefault();
 			  $(this).tab('show');
+			});
+		},
+
+		initModal: function () {
+			$('#modal').dialog({
+				modal: true,
+				resizable: false,
+				title: 'Отправка письма',
+				closeText: "Закрыть",
+				autoOpen: false
 			});
 		},
 
@@ -188,7 +199,7 @@
 
 		// Обновим значения полей HTML и CSS
 		outputValue: function () {
-			var html = '<button id="generated-button">',
+			var html = '<button id="my-button">',
 				css = '';
 			$.each(this.currentValue, function (key, val) {
 				switch (key) {
@@ -231,7 +242,7 @@
 			html += '</button>';
 			$('#result-html').text(html);
 			if (css !== '') {
-				$('#result-css').text('#generated-button {\n' + css + '}');
+				$('#result-css').text('#my-button {\n' + css + '}');
 			} else {
 				$('#result-css').text('');
 			}
@@ -239,8 +250,19 @@
 
 		// Отправим письмо с результатами
 		sendMail: function () {
-			var inp = $('#email');
+			var inp = $('#email'),
+				data = 'mail='+$('#email').val()+'&html='+$('#result-html').text()+'&css='+$('#result-css').text();
 			if (btnGen.valid()) {
+				$.ajax({
+					type: 'post',
+					url: 'send-mail.php',
+					cache: false,
+					data: data,
+					success: function (data) {
+						$('#modal').text(data);
+						$('#modal').dialog('open');
+					}
+				});
 				inp.addClass('success');
 
 			} else {

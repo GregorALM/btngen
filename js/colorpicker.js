@@ -128,8 +128,7 @@
 					$(this).children('.ui-colorpicker-rgb-sliders').slideDown(200);
 				},
 				'mouseleave': function(){
-					$(this).children('.ui-colorpicker-rgb-sliders').slideUp(200);
-					
+					if (!$(this).find('.ui-slider-handle').hasClass('ui-state-active')){$(this).children('.ui-colorpicker-rgb-sliders').slideUp(200);}
 				}
 				
 			});

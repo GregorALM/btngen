@@ -19,14 +19,12 @@ $text-hotspot: rgba(255,255,255,1);
 }
 
 @mixin button($color) {
-	border-top: 2px solid lighten($color, 10%);
-	border-left: 2px solid lighten($color, 10%);
-	border-right: 2px solid darken($color, 10%);
-	border-bottom: 2px solid darken($color, 10%);
+	border: none;
+	border-radius: 10px;
 	background-color: $color;
-	color: lighten($color, 30%);
-	border-radius: 5px;
-	text-shadow: 1px 1px 0 lighten($color, 20%), -1px -1px 0 darken($color, 10%);
+	color: darken($color, 20%);
+	text-shadow: 1px 1px 0 lighten($color, 20%);
+	box-shadow: 0 3px darken($color, 20%);
 }
 
 .ui-widget-content,
@@ -92,6 +90,7 @@ h3 {
 				border: 0px;
 				background-color: $turquoise;
 				color: $white;
+				text-shadow: 1px 1px darken($turquoise, 10%);
 				padding: 20px 5px 20px;
 				border-bottom-left-radius: 5px;
 				border-bottom-right-radius: 5px;
@@ -112,6 +111,7 @@ h3 {
 				&:hover {
 					background-color: $turquoise;
 					color: $white;
+					text-shadow: 1px 1px darken($turquoise, 10%);
 					padding: 20px 5px 20px;
 					box-shadow: 0 3px 0px darken($turquoise, 10%);
 				}
@@ -161,14 +161,13 @@ textarea {
 }
 
 .ui-colorpicker {
-	padding: 0 5px;
+	padding: 0 0 15px;
 	font-weight: bold;
 	color: $dark-gray;
 	text-shadow: 0 1px 0 $text-hotspot;
 
 	& input {
 		border: none;
-		margin-left: 5px;
 		margin-bottom: 10px;
 		width: 100%;
 		text-align: center;
@@ -218,20 +217,19 @@ input {
 
 #submit {
 	margin-bottom: 20px;
-	@include button($green);
-	padding: 5px 20px;
-	font-size: 18px;
+	@include button($turquoise);
+	padding: 3px 24px;
+	font-size: 20px;
+	transition: all .2s ease-in;
 
 	&:hover {
-		background-color: darken($green, 5%)
+		background-color: lighten($turquoise, 10%);
 	}
 	
 	&:active {
 		margin-top: 1px;
-		border-top: 2px solid darken($green, 10%);
-		border-left: 2px solid darken($green, 10%);
-		border-right: 2px solid lighten($green, 10%);
-		border-bottom: 2px solid lighten($green, 10%);
+		margin-bottom: 19px;
+		box-shadow: 0 2px darken($turquoise, 20%);
 	}
 	
 
