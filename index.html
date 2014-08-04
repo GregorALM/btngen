@@ -21,138 +21,192 @@
 				<!--[if lt IE 7]>
 						<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 				<![endif]-->
+			<!-- Шапка с логотипом -->
 			<header>
 				<img src="img/logo.png" alt="Button Generator" class="center-block img-responsive" id="logo">	
 			</header>
+			<!-- Основной элемент приложения -->
 			<div class="container" id="box">
 				<div class="row">
-					<section class="col-md-6">
-						<h3 class="text-center">OPTIONS</h3>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Sizes</h4>
-							</div>
-							<div class="col-md-8">
-								<div class="col-xs-6">
-									<h5>Width</h5>
-									<div id="width"></div>
+					<!-- Секция с опшенами -->
+					<section class="col-md-6" id="options">
+						<!-- Вкладки с опшенами -->
+						<nav class="navbar navbar-default" role="navigation">
+							<div class="container-fluid">
+								<!-- Brand and toggle get grouped for better mobile display -->
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#optionTabs">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+									<h3 class="text-center">OPTIONS</h3>
 								</div>
-								<div class="col-xs-6">
-									<h5>Heigth</h5>
-									<div id="heigth"></div>
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse" id="optionTabs">
+									<ul class="nav nav-tabs">
+										<li class="active"><a href="#main" role="tab" data-toggle="tab">MAIN</a></li>
+										<li><a href="#text" role="tab" data-toggle="tab">TEXT</a></li>
+										<li><a href="#border" role="tab" data-toggle="tab">BORDER</a></li>
+										<li><a href="#shadow" role="tab" data-toggle="tab">SHADOW</a></li>
+									</ul>
+								</div><!-- /.navbar-collapse -->
+							</div><!-- /.container-fluid -->
+						</nav>
+						<!-- Содержимое вкладок -->
+						<div class="tab-content">
+							<!-- Основные настройки -->
+							<div class="tab-pane fade in active" id="main">
+								<!-- Размеры -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Sizes</h4>
+									</div>
+									<div class="col-md-8">
+										<!-- Ширина -->
+										<div class="col-xs-6">
+											<h5>Width</h5>
+											<div id="width"></div>
+										</div>
+										<!-- Высота -->
+										<div class="col-xs-6">
+											<h5>Heigth</h5>
+											<div id="heigth"></div>
+										</div>
+									</div>
 								</div>
-								
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Text</h4>
-							</div>
-							<div class="col-md-8">
-								<div class="col-xs-6">
-									<h5>Size</h5>
-									<div id="font-size"></div>
-								</div>
-								<div class="col-xs-6">
-									<h5>Color</h5>
-									<div id="text-color"></div>
-								</div>
-								<input type="text" id="button-text" value="BUTTON">
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>BG-color</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="background-color"></div>
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Border-radius</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="border-radius"></div>
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Border-size</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="border-size"></div>
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Border-color</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="border-color"></div>
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Shadow</h4>
-							</div>
-							<div class="col-md-8">
-								<div class="col-xs-6">
-									<h5>X - offset</h5>
-									<div id="x-offset"></div>
-								</div>
-								<div class="col-xs-6">
-									<h5>Y - offset</h5>
-									<div id="y-offset"></div>
+								<!-- Цвет фона -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>BG-color</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="background-color"></div>
+									</div>
 								</div>
 							</div>
+							<!-- Настройки текста -->
+							<div class="tab-pane fade" id="text">
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Text</h4>
+									</div>
+									<div class="col-md-8">
+										<!-- Размер текста -->
+										<div class="col-xs-6">
+											<h5>Size</h5>
+											<div id="font-size"></div>
+										</div>
+										<!-- Цвет текста -->
+										<div class="col-xs-6">
+											<h5>Color</h5>
+											<div id="text-color"></div>
+										</div>
+										<!-- Текст -->
+										<input type="text" id="button-text" value="BUTTON">
+									</div>
+								</div>
+							</div>
+							<!-- Настройки рамки -->
+							<div class="tab-pane fade" id="border">
+								<!-- Скругление -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Border-radius</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="border-radius"></div>
+									</div>
+								</div>
+								<!-- Ширина рамки -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Border-size</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="border-size"></div>
+									</div>
+								</div>
+								<!-- Цвет рамки -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Border-color</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="border-color"></div>
+									</div>
+								</div>
+							</div>
+							<!-- Настройки тени -->
+							<div class="tab-pane fade" id="shadow">
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Shadow</h4>
+									</div>
+									<div class="col-md-8">
+										<!-- Сдвиг тени по X -->
+										<div class="col-xs-6">
+											<h5>X - offset</h5>
+											<div id="x-offset"></div>
+										</div>
+										<!-- Сдвиг тени по X -->
+										<div class="col-xs-6">
+											<h5>Y - offset</h5>
+											<div id="y-offset"></div>
+										</div>
+									</div>
+								</div>
+								<!-- Цвет тени -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Shadow-color</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="shadow-color"></div>
+									</div>
+								</div>
+								<!-- Размытие тени -->
+								<div class="row option">
+									<div class="col-md-4">
+										<h4>Shadow-blur</h4>
+									</div>
+									<div class="col-md-8">
+										<div id="shadow-blur"></div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Shadow-color</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="shadow-color"></div>
-							</div>
-						</div>
-						<div class="row option">
-							<div class="col-md-4">
-								<h4>Shadow-blur</h4>
-							</div>
-							<div class="col-md-8">
-								<div id="shadow-blur"></div>
-							</div>
-						</div>
-						
 					</section>
+					<!-- Секция демонстрации результирующей кнопки -->
 					<section class="col-md-6">
 						<h3 class="text-center">RESULT</h3>
-						<div class="col-xs-8 col-xs-offset-2">
+						<div class="col-sm-8 col-sm-offset-2 col-xs-12">
 							<div class="result-section">
 								<button class="center-block" id="result-button">text</button>
 							</div>
 						</div>
-						
 					</section>
 				</div>
-				<div class="row">
+				<!-- Секция вывода кода HTML и CSS -->
+				<section class="row">
 					<div class="col-sm-4 col-sm-offset-2">
 						<textarea rows="3" name="html" id="result-html" placeholder="HTML" disabled=""></textarea>
 					</div>
 					<div class="col-sm-4">
 						<textarea rows="3" name="css" id="result-css" placeholder="CSS" disabled=""></textarea>
 					</div>
-					
-				</div>
-				<div class="row">
-					<div class="col-xs-4 col-xs-offset-4">
+				</section>
+				<!-- Секция ввода емайла и отправки на него письма -->
+				<section class="row">
+					<div class="col-sm-4 col-sm-offset-4 col-xs-12">
 						<input type="email" placeholder="email" id="email">
 						<button type="submit" class="center-block" id="submit">Submit</button>
 					</div>
 				</div>
-			</div>
+			</section>
 
 			<script src="js/vendor-min.js"></script>
-		    <script src="js/main-min.js"></script>
+				<script src="js/main-min.js"></script>
 		</body>
 </html>

@@ -1,6 +1,6 @@
 // Color vars
 $dark-gray: #0F1E43;
-$gray: #EBEBEB;
+$gray: #f3f3f3;
 $turquoise: #24D7B9;
 $green: #35D432;
 $white: #fff;
@@ -68,14 +68,64 @@ h3 {
 
 #box {
 	background-color: $gray;
-	box-shadow: 0 0px 5px $shadow;
+	box-shadow: 0 5px 5px $shadow;
+
+	& #options {
+		& h3 {
+			padding-right: 20px;
+		}
+	}
+
+	& .navbar-default {
+		border: none;
+		background: transparent;
+		box-shadow: none;
+
+		& button {
+			margin-top: 16px;
+		}
+
+		& .nav {
+			border: none;
+
+			& .active a {
+				border: 0px;
+				background-color: $turquoise;
+				color: $white;
+				padding: 20px 5px 20px;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+				box-shadow: 0 3px 0px darken($turquoise, 10%);
+			}
+			
+
+			& a {
+				border: 0px;
+				border-radius: 0;
+				color: $turquoise;
+				padding: 22px 5px 20px;
+				font-size: 16px;
+				transition: all .3s ease-in-out;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 5px;
+
+				&:hover {
+					background-color: $turquoise;
+					color: $white;
+					padding: 20px 5px 20px;
+					box-shadow: 0 3px 0px darken($turquoise, 10%);
+				}
+			}
+		}
+	}
 }
+
 .option {
 	padding: 10px;
 	margin-bottom: 10px;
 	
 	& h5 {
-		margin: 0px;
+		margin: 0px 0px 5px;
 		text-align: center;
 	}
 
@@ -111,7 +161,6 @@ textarea {
 }
 
 .ui-colorpicker {
-	// border: 1px solid $turquoise;
 	padding: 0 5px;
 	font-weight: bold;
 	color: $dark-gray;
@@ -121,7 +170,7 @@ textarea {
 		border: none;
 		margin-left: 5px;
 		margin-bottom: 10px;
-		width: 90%;
+		width: 100%;
 		text-align: center;
 		text-shadow: 1px 0 0 $white, -1px 0 0 $white, 0 1px 0 $white, 0 -1px 0 $white;
 		
@@ -216,7 +265,26 @@ input {
 	}
 }
 
+@media (max-width: 767px) {
+	#options .nav li {
+		display: block;
+		float: none;
+		text-align: center;
+	}
 
+	#box #options h3 {
+		padding-right: 0;
+	}
+
+	#box #options .nav a {
+		border-radius: 5px;
+		margin-bottom: 5px;
+	}
+
+	#options .navbar-collapse {
+		min-height: 300px;
+	}
+}
 
 
 

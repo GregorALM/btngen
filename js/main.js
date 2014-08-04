@@ -4,6 +4,7 @@
 
 	var btnGen = {
 
+		// Начальные настройки всех опшенов
 		settings: {
 			'border-radius': {
 				type: 'slider',
@@ -111,13 +112,17 @@
 			}
 		},
 
+		// Текушие значения
 		currentValue: {},
 
+		// Инициализация
 		initialize: function () {
 			this.setUpListeners();
 			this.setUpOptoinsUI();
+			this.initTabs();
 		},
 
+		// Устанавливаем лиснеры
 		setUpListeners: function () {
 			$(this.getIDs('slider')).bind('slide', this.changeCurrentValue);
 			$(this.getIDs('colorpicker')).bind('colorpickerchange', this.changeCurrentValue);
@@ -126,6 +131,15 @@
 			$('#button-text').on('keyup', this.setText);
 		},
 
+		// Установим обработчик вкладок
+		initTabs: function () {
+			$('#optionTabs a').click(function (e) {
+			  e.preventDefault();
+			  $(this).tab('show');
+			});
+		},
+
+		// Составим разделенный пробелами список ID элементов на которые должен быть повешан опшен определенного типа
 		getIDs: function (type) {
 			var output = '';
 			$.each(btnGen.settings, function (key, val) {
@@ -136,6 +150,7 @@
 			return output.slice(0, output.length - 2);
 		},
 
+		// Установим обработчики опшенов
 		setUpOptoinsUI: function () {
 			$.each(this.settings, function (key, val) {
 				switch (val.type) {
@@ -154,6 +169,7 @@
 			this.outputValue();
 		},
 
+		// Изменяем текушие значения, вызывается лиснером
 		changeCurrentValue: function (event, ui) {
 			var option = $(ui.handle).parent().attr('id');
 			console.log(option);
@@ -161,6 +177,7 @@
 			btnGen.outputValue();
 		},
 
+		// Изменяем текст кнопки, вызывается лиснером
 		setText: function () {
 			var text = $('#button-text').val();
 			$('#result-button').text(text);
@@ -169,6 +186,7 @@
 			btnGen.outputValue();
 		},
 
+		// Обновим значения полей HTML и CSS
 		outputValue: function () {
 			var html = '<button id="generated-button">',
 				css = '';
@@ -219,6 +237,7 @@
 			}
 		},
 
+		// Отправим письмо с результатами
 		sendMail: function () {
 			var inp = $('#email');
 			if (btnGen.valid()) {
@@ -232,11 +251,12 @@
 			}
 		},
 
+		// Валидация поля Email
 		valid: function () {
 			var rv_email = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
 				val = $('#email').val();
 			if (!val.length) {return false;}
-            return rv_email.test(val);
+			return rv_email.test(val);
 		}
 
 	};

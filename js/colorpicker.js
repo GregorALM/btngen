@@ -12,7 +12,7 @@
  
 		
 		_create: function() {
-			$(this.element).addClass('ui-colorpicker').text('#');
+			$(this.element).addClass('ui-colorpicker');
 			$('<input/>', {'class': 'ui-colorpicker-hex'}).appendTo(this.element);
 			$('<div></div>', {'class': 'ui-colorpicker-rgb-sliders'}).appendTo(this.element);
 			$('<div></div>', {'class': 'ui-colorpicker-red-slider', 'color': 'red'}).appendTo(this.element.children('.ui-colorpicker-rgb-sliders'));
